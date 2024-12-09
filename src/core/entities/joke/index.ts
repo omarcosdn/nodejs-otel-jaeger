@@ -38,3 +38,4 @@ export type JokeProps = {
 };
 
 export type CreateJokeProps = Omit<JokeProps, 'id'>;
+export type GetJokeProps = Pick<JokeProps, 'jokeId'>;

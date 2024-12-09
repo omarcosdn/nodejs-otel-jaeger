@@ -2,7 +2,7 @@ import {HttpMethod, HttpRoute, RestRequest} from '@infrastructure/types';
 import {NextFunction, Request, Response, Router} from 'express';
 import {container} from 'tsyringe';
 import {HealthCheckController} from '@infrastructure/controllers/health-check.controller';
-import {CreateJokeController} from '@infrastructure/controllers/create-joke.controller';
+import {GetJokeController} from '@infrastructure/controllers/joke';
 
 const routes: HttpRoute[] = [
   {
@@ -12,9 +12,9 @@ const routes: HttpRoute[] = [
     middlewares: [],
   },
   {
-    method: HttpMethod.POST,
-    path: '/joke',
-    controller: CreateJokeController,
+    method: HttpMethod.GET,
+    path: '/joke/:jokeId',
+    controller: GetJokeController,
     middlewares: [],
   },
 ];

@@ -5,4 +5,6 @@ export interface JokeRepository {
   save(entity: Joke): Promise<void>;
 
   findById(id: UUID): Promise<Joke | undefined>;
+
+  findByJokeId(id: number): Promise<Joke | undefined>;
 }

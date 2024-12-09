@@ -32,6 +32,21 @@ export class JokeRepositoryPostgresAdapter implements JokeRepository {
       jokeId: Number(result.jokeId),
     });
   }
+
+  async findByJokeId(id: number): Promise<Joke | undefined> {
+    const query = 'SELECT * FROM public.joke WHERE joke_id = $1';
+
+    const [result] = await this.db.query<JokeData>(query, [id]);
+    if (!result) {
+      return undefined;
+    }
+
+    return Joke.restore({
+      id: result.id,
+      description: result.description,
+      jokeId: Number(result.jokeId),
+    });
+  }
 }
 
 type JokeData = {

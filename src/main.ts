@@ -1,19 +1,14 @@
 import 'reflect-metadata';
-import './dependency-injection'
+import './dependency-injection';
 import express from 'express';
 import cors from 'cors';
 import {errorHandler, routeNotFound} from '@infrastructure/middlewares';
 import {initializeRoutes} from '@infrastructure/routes';
 import {Env} from '@infrastructure/configurations';
-import {logger} from '@shared/logger';
-import {pinoHttp} from 'pino-http';
-
-const pinoMiddleware = pinoHttp({
-  logger,
-});
+import {logger, loggerMiddleware} from '@shared/logger';
 
 const app = express();
-app.use(pinoMiddleware);
+app.use(loggerMiddleware);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
