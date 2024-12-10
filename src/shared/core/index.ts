@@ -19,5 +19,5 @@ export function randomUUID(): UUID {
 }
 
 export interface ExecutableUseCase<I, O> {
-  execute(input: O): Promise<O> | O;
+  execute(input: I): Promise<O> | O;
 }

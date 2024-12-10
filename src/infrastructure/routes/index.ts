@@ -3,6 +3,7 @@ import {NextFunction, Request, Response, Router} from 'express';
 import {container} from 'tsyringe';
 import {HealthCheckController} from '@infrastructure/controllers/health-check.controller';
 import {GetJokeController} from '@infrastructure/controllers/joke';
+import {PubController} from '@infrastructure/controllers/pubsub';
 
 const routes: HttpRoute[] = [
   {
@@ -15,6 +16,12 @@ const routes: HttpRoute[] = [
     method: HttpMethod.GET,
     path: '/joke/:jokeId',
     controller: GetJokeController,
+    middlewares: [],
+  },
+  {
+    method: HttpMethod.POST,
+    path: '/pub',
+    controller: PubController,
     middlewares: [],
   },
 ];

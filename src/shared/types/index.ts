@@ -3,4 +3,5 @@ export const InjectableToken = {
   JOKE_REPOSITORY: 'JokeRepositoryToken',
   JOKE_API_GATEWAY: 'JokeApiGatewayToken',
   GET_JOKE_USE_CASE: 'GetJokeUseCaseToken',
+  PUB_USE_CASE: 'PubUseCaseToken',
 };
